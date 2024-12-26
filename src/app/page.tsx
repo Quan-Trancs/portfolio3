@@ -1,17 +1,19 @@
 import {
-  Header,
-  Hero,
+    Experience,
+    Header, Hero, Projects, Skills, SkillSets,
+    /*Hero,
   About,
   Skills,
   Experience,
   SkillSets,
   Projects,
   Contact,
-  Footer
+  Footer*/
 } from '@/components/sections';
 
 import Cursor from '@/components/cursor/cursor';
 import SmoothScroll from '@/components/smooth-scroll';
+import About from "@/components/sections/about/cozy/about";
 
 export default function Home() {
   return (
