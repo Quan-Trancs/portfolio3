@@ -1,5 +1,3 @@
-// according to a github issue it is not reccomended to render this in a layout rather, have a wrapper component which does it each render
-// https://github.com/darkroomengineering/lenis/issues/319
 'use client';
 
 import React, { useEffect } from 'react';
@@ -10,7 +8,7 @@ interface LenisProps {
 }
 
 function SmoothScroll({ children }: LenisProps) {
-  const lenis = useLenis(({ scroll }) => {
+  const lenis = useLenis(() => {
     // called every scroll
   });
 
@@ -19,7 +17,7 @@ function SmoothScroll({ children }: LenisProps) {
       lenis?.stop();
       lenis?.start();
     });
-  }, []);
+  });
 
   return (
     <ReactLenis

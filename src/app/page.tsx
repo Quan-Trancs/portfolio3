@@ -6,6 +6,9 @@ import SmoothScroll from '@/components/smooth-scroll';
 import About from "@/components/sections/about/cozy/about";
 import Skills from "@/components/sections/skills/cozy/skills";
 import SkillSets from "@/components/sections/skillSets/modern/skillSets";
+import Projects from "@/components/sections/projects/modern/projects";
+import Experiences from "@/components/sections/experience/cozy/experience";
+import Contact from "@/components/sections/contact/cozy/contact";
 
 export default function Home() {
     return (
@@ -17,6 +20,9 @@ export default function Home() {
                     <About />
                     <Skills />
                     <SkillSets />
+                    <Projects />
+                    <Experiences />
+                    <Contact />
                 </main>
             </div>
             <Cursor />

@@ -29,7 +29,7 @@ function Hero() {
           <div className="flex w-full items-center justify-center px-4 md:px-6">
             <motion.div
               style={{ y, scale }}>
-              <h1 className="text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
+              <h1 className="ml-9 md:ml-0 text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
                 <div>A software developer</div>
                 {/* className="whitespace-nowrap" */}
                 <div>Who like to code</div>

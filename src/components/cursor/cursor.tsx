@@ -7,17 +7,11 @@ import {
   useSpring,
   MotionValue,
   SpringOptions,
-  AnimationControls
 } from 'framer-motion';
 
 interface MouseMoveEvent {
   clientX: number;
   clientY: number;
-}
-
-interface Distance {
-  x: number;
-  y: number;
 }
 
 export default function Cursor() {
@@ -101,7 +95,7 @@ export default function Cursor() {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, []);
+  });
 
   const template = ({
     rotate,

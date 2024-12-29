@@ -3,9 +3,7 @@ import { motion } from 'framer-motion';
 import styles from './style.module.scss';
 import { height } from '../anim';
 import Body from './body/body';
-import Footer from './footer/footer';
 import React from 'react';
-import Image from './image/image';
 import ModeToggle from '@/components/mode-toggle';
 import {
   NavigationMenu,
@@ -13,12 +11,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu';
 
 import { links } from '@/components/sections/header/config';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import {projects} from "@/components/sections/projects/config";
 
 interface IndexProps {
   setIsActive: (isActive: boolean) => void;
@@ -54,10 +52,6 @@ const Index: React.FC<IndexProps> = ({ setIsActive }) => {
           />
           {/* <Footer /> */}
         </div>
-        <Image
-          src={links[selectedLink.index].description}
-          isActive={selectedLink.isActive}
-        />
         <div className="absolute bottom-0 right-0 mb-auto">
           <ModeToggle />
         </div>
@@ -66,44 +60,6 @@ const Index: React.FC<IndexProps> = ({ setIsActive }) => {
   );
 };
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "0",
-    href: "/project/0",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-]
-
 export function NavigationMenuDemo() {
   return (
     <NavigationMenu>
@@ -111,10 +67,10 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[900px] grid-cols-[1fr_1fr] lg:grid-cols-[.75fr_1fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
@@ -124,40 +80,39 @@ export function NavigationMenuDemo() {
                     <p className="text-sm leading-tight text-muted-foreground">
                       Welcome to my portfolio! Discover my projects, skills, and experience in web development and design.
                     </p>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/about" title="Introduction">
+              <ListItem href="/#about" title="Introduction">
                 Get to know more about me and my resume.
               </ListItem>
-              <ListItem href="/skill" title="Skill">
+              <ListItem href="/#skills" title="Skill">
                 Explore my technical skills, including languages, frameworks, and tools I specialize in.
+              </ListItem>
+              <ListItem href="/#projects" title="Projects">
+                Discover my personal and collaborative projects showcasing practical applications of my skills.
+              </ListItem>
+              <ListItem href="/#experiences" title="Experiences">
+                Learn about my past projects, internships, and achievements in the field of software development.
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Experience</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
+              {projects.map((project) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+                  key={project.data.title}
+                  title={project.data.title}
+                  href={project.url}
                 >
-                  {component.description}
+                  {project.data.description}
                 </ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
-            </NavigationMenuLink>
-          </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
