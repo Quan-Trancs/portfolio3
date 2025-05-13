@@ -1,32 +1,32 @@
-import Link from 'next/link';
-import { project } from '@/app/source';
-import TextReveal from '@/components/text-reveal';
-import Line from '@/components/line';
-import React from 'react';
+import Link from 'next/link'
+import { project } from '@/app/source'
+import TextReveal from '@/components/text-reveal'
+import Line from '@/components/line'
+import React from 'react'
 
-import { createMetadata } from '@/lib/metadata';
-import ProjectCard from '@/app/projects/_components/project-card';
+import { createMetadata } from '@/lib/metadata'
+import ProjectCard from '@/app/projects/_components/project-card'
 
 export const metadata = createMetadata({
   title: 'Projects',
-  description: 'Here are some projects I have worked on.'
-});
+  description: 'Here are some projects I have worked on.',
+})
 
 export default function ProjectsPage(): React.ReactElement {
   const projects = [...project.getPages()].sort(
     (a, b) =>
       new Date(b.data.date ?? b.file.name).getTime() -
       new Date(a.data.date ?? a.file.name).getTime()
-  );
+  )
 
   return (
-    <main className="my-14 flex-1">
+    <main className='my-14 flex-1'>
       <section
-        className="relative flex min-h-[calc(50dvh)] items-center justify-center"
-        id="hero"
+        className='relative flex min-h-[calc(50dvh)] items-center justify-center'
+        id='hero'
       >
-        <div className="flex flex-col items-center md:max-w-7xl">
-          <h1 className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
+        <div className='flex flex-col items-center md:max-w-7xl'>
+          <h1 className='leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl'>
             <TextReveal delay={0.2}>My Projects</TextReveal>
           </h1>
 
@@ -42,7 +42,7 @@ export default function ProjectsPage(): React.ReactElement {
         {/*</motion.div>*/}
       </section>
       {/*className="container max-sm:px-0 md:py-12"*/}
-      <section className="grid w-full grid-cols-1 gap-4 p-4 md:grid-cols-2 2xl:grid-cols-3">
+      <section className='grid w-full grid-cols-1 gap-4 p-4 md:grid-cols-2 2xl:grid-cols-3'>
         {projects.map((project, index) => (
           <ProjectCard
             title={project.data.title}
@@ -55,5 +55,5 @@ export default function ProjectsPage(): React.ReactElement {
         ))}
       </section>
     </main>
-  );
+  )
 }
