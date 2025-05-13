@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { TransitionRouter } from 'next-transition-router';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { TransitionRouter } from "next-transition-router";
+import { cn } from "@/lib/utils";
 
 const TransitionLayer = ({
   className,
   custom,
   duration,
-  delay = 0
+  delay = 0,
 }: {
   className: string;
   custom: number;
@@ -17,14 +17,14 @@ const TransitionLayer = ({
   delay?: number;
 }) => (
   <motion.div
-    className={cn('fixed inset-0 z-30', className)}
-    initial={{ y: '100%' }}
+    className={cn("fixed inset-0 z-30", className)}
+    initial={{ y: "100%" }}
     animate={{ y: 0 }}
-    exit={{ y: '-100%' }}
+    exit={{ y: "-100%" }}
     transition={{
       duration: duration,
       ease: [0.65, 0, 0.35, 1],
-      delay: delay
+      delay: delay,
     }}
     custom={custom}
   />
@@ -32,22 +32,30 @@ const TransitionLayer = ({
 
 export function TransitionProvider({
   children,
-  speed = 1.0
+  speed = 1.0,
 }: {
   children: React.ReactNode;
   speed?: number;
 }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const baseDuration = 0.5 / speed;
   const transitionTiming = baseDuration * 1000 * 3;
 
+  // Set mounted state once component mounts
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     if (isTransitioning) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
-  }, [isTransitioning]);
+  }, [isTransitioning, isMounted]);
 
   return (
     <TransitionRouter

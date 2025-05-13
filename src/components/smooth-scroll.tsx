@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useEffect } from 'react';
-import { ReactLenis, useLenis } from '@/lib/lenis';
+import React, { useEffect } from "react";
+import { ReactLenis, useLenis } from "@/lib/lenis";
 
 interface LenisProps {
   children: React.ReactNode;
@@ -13,17 +13,31 @@ function SmoothScroll({ children }: LenisProps) {
   });
 
   useEffect(() => {
-    document.addEventListener('DOMContentLoaded', () => {
+    // Only run on client-side
+    if (typeof document === "undefined") return;
+
+    const handleDOMContentLoaded = () => {
       lenis?.stop();
       lenis?.start();
-    });
-  });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
+    } else {
+      // DOM already loaded, call directly
+      handleDOMContentLoaded();
+    }
+
+    return () => {
+      document.removeEventListener("DOMContentLoaded", handleDOMContentLoaded);
+    };
+  }, [lenis]);
 
   return (
     <ReactLenis
       root
       options={{
-        duration: 2
+        duration: 2,
       }}
     >
       {children}
