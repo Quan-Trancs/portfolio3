@@ -1,13 +1,13 @@
-'use client';
-import React, { useEffect, useState, useRef } from 'react';
-import styles from './style.module.scss';
+"use client";
+import React, { useEffect, useState, useRef } from "react";
+import styles from "./style.module.scss";
 import {
   motion,
   useMotionValue,
   useSpring,
   MotionValue,
   SpringOptions,
-} from 'framer-motion';
+} from "framer-motion";
 
 interface MouseMoveEvent {
   clientX: number;
@@ -19,24 +19,33 @@ export default function Cursor() {
   const cursor = useRef<HTMLDivElement>(null);
   const cursorSize = isPressed ? 21 : 15;
   const [isVisible, setIsVisible] = useState(false);
+  // Initialize with safe defaults for SSR
+  const [isBrowser, setIsBrowser] = useState(false);
 
   const mouse: { x: MotionValue<number>; y: MotionValue<number> } = {
     x: useMotionValue(0),
-    y: useMotionValue(0)
+    y: useMotionValue(0),
   };
 
   const smoothOptions: SpringOptions = {
     damping: 20,
     stiffness: 300,
-    mass: 0.5
+    mass: 0.5,
   };
   const smoothMouse = {
     x: useSpring(mouse.x, smoothOptions),
-    y: useSpring(mouse.y, smoothOptions)
+    y: useSpring(mouse.y, smoothOptions),
   };
 
+  // Set browser state once mounted
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
   const manageResize = () => {
-    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (!isBrowser) return;
+
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) {
       setIsVisible(false);
       return;
@@ -44,7 +53,9 @@ export default function Cursor() {
   };
 
   const manageMouseMove = (e: MouseMoveEvent) => {
-    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (!isBrowser) return;
+
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) {
       setIsVisible(false);
       return;
@@ -72,35 +83,37 @@ export default function Cursor() {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', manageResize);
+    if (!isBrowser) return;
 
-    document.body.addEventListener('mouseleave', manageMouseLeave, {
-      passive: true
+    window.addEventListener("resize", manageResize);
+
+    document.body.addEventListener("mouseleave", manageMouseLeave, {
+      passive: true,
     });
-    window.addEventListener('mousemove', manageMouseMove, {
-      passive: true
+    window.addEventListener("mousemove", manageMouseMove, {
+      passive: true,
     });
-    window.addEventListener('mousedown', handleMouseDown, {
-      passive: true
+    window.addEventListener("mousedown", handleMouseDown, {
+      passive: true,
     });
-    window.addEventListener('mouseup', handleMouseUp, {
-      passive: true
+    window.addEventListener("mouseup", handleMouseUp, {
+      passive: true,
     });
 
     return () => {
-      window.removeEventListener('resize', manageResize);
+      window.removeEventListener("resize", manageResize);
 
-      window.removeEventListener('mouseleave', manageMouseLeave);
-      window.removeEventListener('mousemove', manageMouseMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener("mouseleave", manageMouseLeave);
+      window.removeEventListener("mousemove", manageMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
     };
-  });
+  }, [isBrowser, cursorSize]); // Add dependencies properly
 
   const template = ({
     rotate,
     scaleX,
-    scaleY
+    scaleY,
   }: {
     rotate: number;
     scaleX: number;
@@ -117,11 +130,11 @@ export default function Cursor() {
           left: smoothMouse.x,
           top: smoothMouse.y,
           scaleX: mouse.x,
-          scaleY: mouse.y
+          scaleY: mouse.y,
         }}
         animate={{
           width: cursorSize,
-          height: cursorSize
+          height: cursorSize,
         }}
         className={`${styles.cursor} ${isVisible ? styles.visible : styles.hidden}`}
         ref={cursor}
