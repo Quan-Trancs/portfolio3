@@ -1,11 +1,11 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { CardContent, CardFooter, Card } from '@/components/ui/card';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { GithubIcon, GlobeIcon, InfoIcon } from 'lucide-react';
+import { InfoIcon } from 'lucide-react';
 
 import { Project } from '@/types/project';
 
@@ -96,30 +96,30 @@ function ProjectCard({
       )}
     >
       <CardContent className="p-4 md:p-6 min-w-0">
-        <div className="grid gap-2 min-w-0">
+        <div className="grid gap-2 min-w-0 w-full">
           <Image
             src={thumbnail || '/placeholder.svg'}
             alt={`${title} project showcase`}
+            width={0}
+            height={0}
             sizes="100vw"
-            width={500}
-            height={300}
             className="h-48 w-full rounded-md object-cover"
           />
-          <div className="flex items-baseline justify-between gap-2">
-            <div className="line-clamp-2 overflow-hidden flex-1">
-              <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-xl font-bold break-words">
+          <div className="flex items-baseline justify-between gap-2 min-w-0 flex-wrap">
+            <div className="line-clamp-2 overflow-hidden flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap min-w-0">
+                <h3 className="text-xl font-bold break-words min-w-0">
                   <TextReveal>{title}</TextReveal>
                 </h3>
                 {category && viewMode === 'list' && (
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="text-xs flex-shrink-0">
                     {category}
                   </Badge>
                 )}
               </div>
             </div>
             {displayDate && (
-              <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+              <span className="text-sm font-medium text-muted-foreground flex-shrink-0">
                 {displayDate}
               </span>
             )}
@@ -131,7 +131,7 @@ function ProjectCard({
               </Badge>
             </div>
           )}
-          <div className={cn('overflow-hidden', !isExpanded && 'line-clamp-3')}>
+          <div className={cn('overflow-hidden min-w-0', !isExpanded && 'line-clamp-3')}>
             <p ref={descriptionRef} className="text-sm text-gray-500 dark:text-gray-400 break-words">
               <TextReveal>{description || ''}</TextReveal>
             </p>
@@ -148,9 +148,9 @@ function ProjectCard({
               {isExpanded ? 'Show less' : 'Show more'}
             </button>
           )}
-          <div className="mt-2 flex flex-wrap gap-2 min-w-0">
+          <div className="mt-2 flex flex-wrap gap-2 min-w-0 w-full">
             {tags?.map((tag, index) => (
-              <Badge key={`project-tag_${index}`} className="text-xs whitespace-nowrap max-w-[200px] truncate">
+              <Badge key={`project-tag_${index}`} className="text-xs break-words max-w-full">
                 {tag.label}
               </Badge>
             ))}

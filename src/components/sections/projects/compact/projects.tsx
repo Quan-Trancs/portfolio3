@@ -1,5 +1,3 @@
-import React from 'react';
-
 import MotionWrap from '@/components/motion-wrap';
 import ProjectCard from './project-card';
 

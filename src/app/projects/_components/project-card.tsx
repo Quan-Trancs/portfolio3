@@ -1,7 +1,7 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { CardContent, CardFooter, Card } from '@/components/ui/card';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -63,21 +63,21 @@ function ProjectCard({
         className
       )}
     >
-      <CardContent className="p-4 md:p-6">
-        <div className="grid gap-2">
+      <CardContent className="p-4 md:p-6 min-w-0">
+        <div className="grid gap-2 min-w-0 w-full">
           <Image
             src={thumbnail || '/placeholder.svg'}
             alt={`${title} project showcase`}
+            width={0}
+            height={0}
             sizes="100vw"
-            width={500}
-            height={300}
             className="mb-2 aspect-video h-auto w-full rounded-md object-cover"
           />
-          <h3 className="text-xl font-bold">
+          <h3 className="text-xl font-bold break-words min-w-0">
             <TextReveal>{title}</TextReveal>
           </h3>
-          <div className={cn('overflow-hidden', !isExpanded && 'line-clamp-3')}>
-            <p ref={descriptionRef} className="text-sm text-gray-500 dark:text-gray-400">
+          <div className={cn('overflow-hidden min-w-0', !isExpanded && 'line-clamp-3')}>
+            <p ref={descriptionRef} className="text-sm text-gray-500 dark:text-gray-400 break-words">
               <TextReveal>{description || ''}</TextReveal>
             </p>
           </div>
@@ -93,9 +93,11 @@ function ProjectCard({
               {isExpanded ? 'Show less' : 'Show more'}
             </button>
           )}
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-2 flex flex-wrap gap-2 min-w-0 w-full">
             {tags?.map((tag, index) => (
-              <Badge key={`project-tag_${index}`}>{tag.label}</Badge>
+              <Badge key={`project-tag_${index}`} className="text-xs break-words max-w-full">
+                {tag.label}
+              </Badge>
             ))}
           </div>
         </div>

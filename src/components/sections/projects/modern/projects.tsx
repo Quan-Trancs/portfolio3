@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 
 import MotionWrap from '@/components/motion-wrap';
 import ProjectCard from './project-card';

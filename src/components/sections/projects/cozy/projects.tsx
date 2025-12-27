@@ -1,4 +1,3 @@
-import React from 'react';
 import ProjectCard from './project-card';
 
 import Reveal from '@/components/reveal';
