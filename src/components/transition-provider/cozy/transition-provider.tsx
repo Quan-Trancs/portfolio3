@@ -60,8 +60,7 @@ export function TransitionProvider({
   return (
     <TransitionRouter
       auto
-      leave={(next, from, to) => {
-        console.log({ from, to });
+      leave={(next) => {
         setIsTransitioning(true);
         setTimeout(next, transitionTiming * 0.6);
         return () => setIsTransitioning(false);

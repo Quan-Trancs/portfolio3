@@ -21,7 +21,7 @@ function Hero() {
           </p>
         </div>
         <Image
-          alt="Image"
+          alt={`${hero.name} - Professional Portrait`}
           className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
           height="450"
           sizes="100vw"

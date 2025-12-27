@@ -18,13 +18,12 @@ function About() {
             <div className="space-y-4">
               <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 <TextReveal>
-                  I am a Computer Science student at the Arizona State University.
-                  My passion lies between technology, and coding. With two years of
-                  web developing experience, I have explored full-stack development through
-                  projects, internships, and classes. I also participated in challenging
-                  hackathons and competitions. My portfolio showcases my experiences and
-                  skills in this exciting industry. Come along as we explore the realm of
-                  Software Developing.
+                  I am a Computer Science student at Arizona State University, graduating in May 2026 with a GPA of 3.5/4.0. 
+                  As a Software Developer Intern, I am recognized for high productivity and efficient task completion. 
+                  Proficient in Java, SQL, and Python, with expertise in debugging, coding, and software design. 
+                  I have demonstrated ability in full stack development and agile methodologies, contributing to improved 
+                  system efficiency and streamlined processes in team projects. My experience includes internships at MightyID, 
+                  RoboMain, and FPT Corporation, where I've worked on various web applications and systems.
                 </TextReveal>
               </p>
               <div className="flex gap-2">
@@ -41,7 +40,7 @@ function About() {
           </div>
           <div className="relative flex w-full items-center justify-end">
             <Image
-              alt="Image"
+              alt="About Me - Professional Photo"
               className="aspect-square h-full overflow-hidden rounded-xl object-cover object-center"
               src="/images/hero.jpg"
               width={550}

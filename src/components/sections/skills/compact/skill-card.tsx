@@ -16,13 +16,22 @@ interface SkillCardProps extends Skill {
 
 function SkillCard({ name, description, Icon, className }: SkillCardProps) {
   return (
-    <Card className={cn('bg-muted/40', className)}>
+    <Card className={cn(
+      'bg-muted/40 border-2 transition-all duration-300',
+      'hover:bg-muted/60 hover:border-primary/20 hover:shadow-lg',
+      'hover:scale-[1.02] hover:-translate-y-1',
+      className
+    )}>
       <CardContent className="p-4 md:p-6">
         <div className="flex items-center gap-4">
-          {Icon ? <Icon className="min-h-8 min-w-8" /> : <CodeIcon />}
-          <div className="grid gap-0.5">
-            <h3 className="text-xl font-semibold">{name}</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex-shrink-0 transition-all duration-300 hover:scale-110 hover:text-primary">
+            {Icon ? <Icon className="min-h-8 min-w-8" /> : <CodeIcon className="min-h-8 min-w-8" />}
+          </div>
+          <div className="grid gap-1 flex-1">
+            <h3 className="text-xl font-semibold transition-colors duration-300 hover:text-primary">
+              {name}
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
               {description || ''}
             </p>
           </div>

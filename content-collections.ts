@@ -22,7 +22,10 @@ const projects = defineCollection({
                     })
                 )
                 .optional(),
-            date: z.string().date().or(z.date()).optional()
+            date: z.string().date().or(z.date()).optional(),
+            startDate: z.string().date().or(z.date()).optional(),
+            endDate: z.string().date().or(z.date()).optional(),
+            category: z.string().optional()
         };
     },
     transform: transformMDX

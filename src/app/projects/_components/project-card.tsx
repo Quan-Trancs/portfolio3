@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useState, useRef, useEffect } from 'react';
 import { CardContent, CardFooter, Card } from '@/components/ui/card';
 import { Button, buttonVariants } from '@/components/ui/button';
 
@@ -33,6 +34,28 @@ function ProjectCard({
   tags,
   className
 }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (descriptionRef.current) {
+        // Check if content overflows when line-clamp-3 is applied
+        const element = descriptionRef.current;
+        const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+        const maxHeight = lineHeight * 3;
+        setShowButton(element.scrollHeight > maxHeight + 1); // Add 1px tolerance
+      }
+    };
+    
+    // Use requestAnimationFrame to ensure DOM is fully rendered
+    requestAnimationFrame(checkOverflow);
+    // Also check on window resize
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [description]);
+
   return (
     <Card
       className={cn(
@@ -44,7 +67,7 @@ function ProjectCard({
         <div className="grid gap-2">
           <Image
             src={thumbnail || '/placeholder.svg'}
-            alt={`Image of ${title}`}
+            alt={`${title} project showcase`}
             sizes="100vw"
             width={500}
             height={300}
@@ -53,9 +76,23 @@ function ProjectCard({
           <h3 className="text-xl font-bold">
             <TextReveal>{title}</TextReveal>
           </h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            <TextReveal>{description || ''}</TextReveal>
-          </p>
+          <div className={cn('overflow-hidden', !isExpanded && 'line-clamp-3')}>
+            <p ref={descriptionRef} className="text-sm text-gray-500 dark:text-gray-400">
+              <TextReveal>{description || ''}</TextReveal>
+            </p>
+          </div>
+          {showButton && (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsExpanded(!isExpanded);
+              }}
+              className="text-sm text-primary hover:underline z-[3] relative"
+            >
+              {isExpanded ? 'Show less' : 'Show more'}
+            </button>
+          )}
           <div className="mt-2 flex flex-wrap gap-2">
             {tags?.map((tag, index) => (
               <Badge key={`project-tag_${index}`}>{tag.label}</Badge>

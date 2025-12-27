@@ -4,7 +4,7 @@ import { metadata as meta } from '@/app/config';
 const hero: Hero = {
   name: meta.author.name,
   label: meta.author.label,
-  description: 'I design and build beautiful websites. Welcome to my portfolio.'
+  description: 'Software Developer Intern recognized for high productivity and efficient task completion. Proficient in Java, SQL, and Python, with expertise in debugging, coding, and software design.'
 };
 
 export { hero };

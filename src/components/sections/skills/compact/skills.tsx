@@ -21,12 +21,13 @@ function Skills() {
           </div>
           <div className="grid gap-4">
             {skills.map((skill, index) => (
-              <SkillCard
-                key={`skill_${index}`}
-                name={skill.name}
-                description={skill.description}
-                Icon={skill.Icon}
-              />
+              <div key={`skill_${index}`} className="transition-all duration-300">
+                <SkillCard
+                  name={skill.name}
+                  description={skill.description}
+                  Icon={skill.Icon}
+                />
+              </div>
             ))}
           </div>
         </div>

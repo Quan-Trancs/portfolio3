@@ -14,7 +14,6 @@ export default function ProjectLayout({
 }>) {
   return (
     <SmoothScroll>
-      {/* <Loader /> */}
       <div className="flex min-h-[100dvh] flex-col">
         <Header />
         {children}

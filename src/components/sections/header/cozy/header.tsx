@@ -32,7 +32,7 @@ const Header = ({ loader }: HeaderProps) => {
     >
       <div className={styles.bar}>
         <Link href="/" className="flex items-center justify-center">
-          <span className="text-3xl font-semibold transition-transform hover:translate-x-1 hover:translate-y-1">
+          <span className="text-xl font-semibold transition-transform hover:translate-x-1 hover:translate-y-1 sm:text-2xl">
             {meta.author.name}
           </span>
         </Link>
@@ -62,7 +62,9 @@ const Header = ({ loader }: HeaderProps) => {
       <AnimatePresence mode="wait">
         {isActive && <Nav setIsActive={setIsActive} />}
       </AnimatePresence>
-      <NavigationMenuDemo />
+      <div className="hidden lg:block">
+        <NavigationMenuDemo />
+      </div>
     </motion.header>
   );
 };

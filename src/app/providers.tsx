@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TransitionProvider } from "@/components/transition-provider";
 import { useEffect } from "react";
 import { safeInitAnalytics } from "@/lib/analytics-safe";
+import { registerServiceWorker } from "@/lib/service-worker";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   // Setup FullStory with safety wrapper

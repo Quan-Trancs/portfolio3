@@ -66,4 +66,18 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Hide default cursor on fine pointer devices (mouse/trackpad) */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+  
+  /* Show default cursor on touch devices */
+  @media (pointer: coarse) {
+    * {
+      cursor: auto;
+    }
+  }
 }

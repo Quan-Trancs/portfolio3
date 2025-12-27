@@ -85,6 +85,13 @@ export default function Cursor() {
   useEffect(() => {
     if (!isBrowser) return;
 
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    
+    // Hide default cursor only on fine pointer devices
+    if (isFinePointer) {
+      document.body.style.cursor = 'none';
+    }
+
     window.addEventListener("resize", manageResize);
 
     document.body.addEventListener("mouseleave", manageMouseLeave, {
@@ -101,14 +108,16 @@ export default function Cursor() {
     });
 
     return () => {
+      // Restore default cursor on cleanup
+      document.body.style.cursor = 'auto';
+      
       window.removeEventListener("resize", manageResize);
-
       window.removeEventListener("mouseleave", manageMouseLeave);
       window.removeEventListener("mousemove", manageMouseMove);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [isBrowser, cursorSize]); // Add dependencies properly
+  }, [isBrowser, cursorSize]);
 
   const template = ({
     rotate,

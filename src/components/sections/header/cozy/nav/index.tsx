@@ -11,6 +11,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
 import { links } from '@/components/sections/header/config';
@@ -63,45 +64,106 @@ const Index: React.FC<IndexProps> = ({ setIsActive }) => {
 export function NavigationMenuDemo() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex flex-wrap gap-1">
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuLink asChild>
+            <Link
+              href="/"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+            >
+              Home
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild>
+            <Link
+              href="/#about"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+            >
+              About
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem value="skills">
+          <NavigationMenuTrigger 
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/#skills';
+            }}
+          >
+            Skills
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[900px] grid-cols-[1fr_1fr] lg:grid-cols-[.75fr_1fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      Home
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Welcome to my portfolio! Discover my projects, skills, and experience in web development and design.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/#about" title="Introduction">
-                Get to know more about me and my resume.
+            <ul className="grid w-[95vw] max-w-[1400px] gap-1 p-4 md:grid-cols-4">
+              <ListItem
+                title="Programming Languages & Development Tools"
+                href="/#skills"
+              >
+                General skills and tools
               </ListItem>
-              <ListItem href="/#skills" title="Skill">
-                Explore my technical skills, including languages, frameworks, and tools I specialize in.
+              <ListItem
+                title="Web Development"
+                href="/#skills-webdev"
+              >
+                Frontend, Backend, Security
               </ListItem>
-              <ListItem href="/#projects" title="Projects">
-                Discover my personal and collaborative projects showcasing practical applications of my skills.
+              <ListItem
+                title="Database Management"
+                href="/#skills-data"
+              >
+                Database Technologies & Operations
               </ListItem>
-              <ListItem href="/#experiences" title="Experiences">
-                Learn about my past projects, internships, and achievements in the field of software development.
+              <ListItem
+                title="Machine Learning"
+                href="/#skills-ml"
+              >
+                AI Engineering & Machine Learning
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
+          <NavigationMenuLink asChild>
+            <Link
+              href="/#education"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+            >
+              Education
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild>
+            <Link
+              href="/#experiences"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+            >
+              Experiences
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild>
+            <Link
+              href="/#certificates"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+            >
+              Certificates
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem value="projects">
+          <NavigationMenuTrigger 
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/#projects';
+            }}
+          >
+            Projects
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid w-[95vw] max-w-[1400px] gap-3 p-4 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
                 <ListItem
                   key={project.data.title}
@@ -113,6 +175,16 @@ export function NavigationMenuDemo() {
               ))}
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild>
+            <Link
+              href="/#contact"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+            >
+              Contact
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

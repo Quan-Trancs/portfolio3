@@ -7,6 +7,8 @@ import Projects from './projects/modern/projects';
 import Contact from './contact/cozy/contact';
 import SkillSets from './skillSets/modern/skillSets';
 import Footer from './footer/cozy/footer';
+import Education from './education/cozy/education';
+import Certificates from './certificates/cozy/certificates';
 
 export {
   Header,
@@ -17,5 +19,7 @@ export {
   Experience,
   SkillSets,
   Contact,
-  Footer
+  Footer,
+  Education,
+  Certificates
 };

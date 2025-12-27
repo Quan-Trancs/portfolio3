@@ -16,14 +16,34 @@ const links: Link[] = [
     description: 'about.jpg'
   },
   {
-    title: 'Projects',
-    href: '/#projects',
-    description: 'projects.jpg'
+    title: 'Skills',
+    href: '/#skills',
+    description: 'skills.jpg'
+  },
+  {
+    title: 'Education',
+    href: '/#education',
+    description: 'education.jpg'
   },
   {
     title: 'Experiences',
     href: '/#experiences',
     description: 'experiences.jpg'
+  },
+  {
+    title: 'Certificates',
+    href: '/#certificates',
+    description: 'certificates.jpg'
+  },
+  {
+    title: 'Projects',
+    href: '/#projects',
+    description: 'projects.jpg'
+  },
+  {
+    title: 'Contact',
+    href: '/#contact',
+    description: 'contact.jpg'
   }
 ];
 

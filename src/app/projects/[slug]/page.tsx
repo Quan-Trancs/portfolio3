@@ -81,7 +81,7 @@ export default async function ProjectPage({
           src={`/images/projects/${slug}/cover.jpg`}
           width={1280}
           height={832}
-          alt={`Image of ${page.data.title}`}
+          alt={`${page.data.title} project showcase`}
           className='my-12 aspect-video h-auto w-full rounded-lg object-cover'
         />
         <div className='prose min-w-full dark:prose-invert'>
@@ -90,7 +90,7 @@ export default async function ProjectPage({
             components={{
               a: MDXLink,
               img: (props) => (
-                <img className='rounded-xl' {...props} alt='Image' />
+                <img className='rounded-xl' {...props} alt={props.alt || `${page.data.title} project image`} />
               ),
               ...Object.fromEntries(
                 headingTypes.map((type) => [
