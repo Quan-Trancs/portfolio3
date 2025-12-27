@@ -8,7 +8,7 @@ type LogLevel = 'log' | 'warn' | 'error' | 'info' | 'debug';
 class Logger {
   private isProduction = process.env.NODE_ENV === 'production';
 
-  private log(level: LogLevel, ...args: unknown[]) {
+  private internalLog(level: LogLevel, ...args: unknown[]) {
     if (this.isProduction) {
       // In production, send to monitoring service
       // TODO: Integrate with Sentry, LogRocket, or similar
@@ -25,23 +25,23 @@ class Logger {
   }
 
   log(...args: unknown[]) {
-    this.log('log', ...args);
+    this.internalLog('log', ...args);
   }
 
   warn(...args: unknown[]) {
-    this.log('warn', ...args);
+    this.internalLog('warn', ...args);
   }
 
   error(...args: unknown[]) {
-    this.log('error', ...args);
+    this.internalLog('error', ...args);
   }
 
   info(...args: unknown[]) {
-    this.log('info', ...args);
+    this.internalLog('info', ...args);
   }
 
   debug(...args: unknown[]) {
-    this.log('debug', ...args);
+    this.internalLog('debug', ...args);
   }
 }
 

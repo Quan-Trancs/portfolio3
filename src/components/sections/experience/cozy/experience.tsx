@@ -86,20 +86,11 @@ function Experiences() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setViewMode(viewMode === 'full' ? 'compact' : 'full')}
+                onClick={() => setViewMode('full')}
                 className="gap-2"
               >
-                {viewMode === 'full' ? (
-                  <>
-                    <List className="h-4 w-4" />
-                    Compact
-                  </>
-                ) : (
-                  <>
-                    <LayoutGrid className="h-4 w-4" />
-                    Full
-                  </>
-                )}
+                <LayoutGrid className="h-4 w-4" />
+                Full
               </Button>
             </div>
             <div className="grid gap-4">

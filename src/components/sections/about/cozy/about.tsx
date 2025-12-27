@@ -22,8 +22,8 @@ function About() {
                   As a Software Developer Intern, I am recognized for high productivity and efficient task completion. 
                   Proficient in Java, SQL, and Python, with expertise in debugging, coding, and software design. 
                   I have demonstrated ability in full stack development and agile methodologies, contributing to improved 
-                  system efficiency and streamlined processes in team projects. My experience includes internships at MightyID, 
-                  RoboMain, and FPT Corporation, where I've worked on various web applications and systems.
+                  system efficiency and streamlined processes in team projects.                   My experience includes internships at MightyID, 
+                  RoboMain, and FPT Corporation, where I&apos;ve worked on various web applications and systems.
                 </TextReveal>
               </p>
               <div className="flex gap-2">

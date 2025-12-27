@@ -17,7 +17,6 @@ import {
   FormMessage
 } from '@/components/ui/form';
 
-import { TurnstileModal } from '@/components/sections/contact/_components/turnstile-modal';
 import { LoaderCircleIcon } from 'lucide-react';
 import { contactSubmit } from '@/app/actions';
 
@@ -28,9 +27,7 @@ import {
   ContactForm as ContactFormType,
   ContactFormSchema
 } from '@/lib/validators';
-import { useState } from 'react';
 
-import { toast } from 'sonner';
 import {zodResolver} from "@hookform/resolvers/zod";
 
 export default function ContactForm() {
@@ -41,32 +38,18 @@ export default function ContactForm() {
       email: '',
       message: ''
     }
-    
-
   });
 
   const { execute, result, status } = useAction(contactSubmit);
-  const [isOpen, setIsOpen] = useState(false);
 
-  // todo: probably refactor this, setIsOpen is not clean
-  // values: ContactFormType
-  async function onSubmit() {
-    setIsOpen(true);
-    // execute(values);
-  }
-
-  async function onVerify(token?: string) {
-    setIsOpen(false);
-    if (!token) {
-      toast.error(
-        'Captcha validation failed. Please ensure the captcha is completed.',
-        {
-          position: 'bottom-center'
-        }
-      );
-      return;
-    }
-    execute({ ...form.getValues(), token });
+  async function onSubmit(values: ContactFormType) {
+    // Trim values before submission
+    const trimmedValues = {
+      name: values.name.trim(),
+      email: values.email.trim(),
+      message: values.message.trim()
+    };
+    execute(trimmedValues);
   }
 
   return (
@@ -142,7 +125,6 @@ export default function ContactForm() {
           </Button>
         </form>
       </Form>
-      <TurnstileModal open={isOpen} callback={onVerify} />
     </div>
   );
 }

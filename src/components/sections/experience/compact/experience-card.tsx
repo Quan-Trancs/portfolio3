@@ -51,7 +51,7 @@ function highlightText(text: string): React.ReactNode {
   const matches: Array<{ index: number; length: number; text: string; type: 'achievement' | 'skill' }> = [];
   
   // Find achievement matches
-  let match;
+  let match: RegExpExecArray | null;
   while ((match = achievementPattern.exec(text)) !== null) {
     matches.push({
       index: match.index,
@@ -63,15 +63,16 @@ function highlightText(text: string): React.ReactNode {
   
   // Find skill matches
   while ((match = skillPattern.exec(text)) !== null) {
+    const currentMatch = match; // Store in const for TypeScript
     // Check if this skill match overlaps with an achievement match
     const overlaps = matches.some(m => 
-      match.index < m.index + m.length && match.index + match[0].length > m.index
+      currentMatch.index < m.index + m.length && currentMatch.index + currentMatch[0].length > m.index
     );
     if (!overlaps) {
       matches.push({
-        index: match.index,
-        length: match[0].length,
-        text: match[0],
+        index: currentMatch.index,
+        length: currentMatch[0].length,
+        text: currentMatch[0],
         type: 'skill'
       });
     }
