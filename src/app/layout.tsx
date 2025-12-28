@@ -5,6 +5,7 @@ import Providers from "@/app/providers";
 import Loader from "@/app/loader";
 import {Toaster} from "sonner";
 import { ErrorBoundary } from "@/components/error-boundary";
+import ThemeToggleFixed from "@/components/theme-toggle-fixed";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Providers>
             <Loader />
             {children}
+            <ThemeToggleFixed />
             <Toaster position="bottom-center" />
           </Providers>
         </ErrorBoundary>

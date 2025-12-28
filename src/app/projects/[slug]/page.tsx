@@ -7,6 +7,9 @@ import { project } from '@/app/source'
 
 import Header from './header'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { ArrowLeftIcon } from 'lucide-react'
 
 import { createMetadata } from '@/lib/metadata'
 import { metadata as meta } from '@/app/config'
@@ -75,23 +78,48 @@ export default async function ProjectPage({
 
   return (
     <main className='my-14 flex-1'>
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-4 max-w-4xl'>
+        {/* Back Button */}
+        <div className='mb-8'>
+          <Button
+            variant='ghost'
+            className='group -ml-4'
+            asChild
+          >
+            <Link href='/projects'>
+              <ArrowLeftIcon className='mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1' />
+              Back to Projects
+            </Link>
+          </Button>
+        </div>
+
         <Header metadata={page.data} />
-        <Image
-          src={`/images/projects/${slug}/cover.jpg`}
-          width={1280}
-          height={832}
-          alt={`${page.data.title} project showcase`}
-          className='my-12 aspect-video h-auto w-full rounded-lg object-cover'
-        />
-        <div className='prose min-w-full dark:prose-invert'>
+        
+        <div className='my-12 overflow-hidden rounded-xl border shadow-lg'>
+          <Image
+            src={`/images/projects/${slug}/cover.jpg`}
+            width={1280}
+            height={832}
+            alt={`${page.data.title} project showcase`}
+            className='aspect-video h-auto w-full object-cover'
+          />
+        </div>
+        
+        <div className='prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:text-primary prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800'>
           <MDXContent
             code={body}
             components={{
               a: MDXLink,
-              img: (props) => (
-                <img className='rounded-xl' {...props} alt={props.alt || `${page.data.title} project image`} />
-              ),
+              img: (props) => {
+                // eslint-disable-next-line @next/next/no-img-element
+                return (
+                  <img 
+                    className='rounded-xl shadow-lg my-8' 
+                    {...props} 
+                    alt={props.alt || `${page.data.title} project image`} 
+                  />
+                );
+              },
               ...Object.fromEntries(
                 headingTypes.map((type) => [
                   type,
@@ -103,13 +131,22 @@ export default async function ProjectPage({
               pre: ({ className, style: _style, ...props }) => (
                 <pre
                   className={cn(
-                    'max-h-[500px] overflow-auto rounded-lg border border-neutral-800 bg-neutral-900 p-2 text-sm',
+                    'max-h-[500px] overflow-auto rounded-lg border border-neutral-800 bg-neutral-900 p-4 text-sm shadow-lg',
                     className
                   )}
                   {...props}
                 >
                   {props.children}
                 </pre>
+              ),
+              code: ({ className, ...props }) => (
+                <code
+                  className={cn(
+                    'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm',
+                    className
+                  )}
+                  {...props}
+                />
               ),
             }}
           />
