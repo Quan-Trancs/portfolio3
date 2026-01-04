@@ -43,7 +43,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
           alt: 'banner',
           width: 1200,
           height: 630,
-          url: `/images/projects/${slug}/cover.jpg`,
+          url: slug === 'collaboard' 
+            ? `/images/projects/${slug}/cover.png`
+            : `/images/projects/${slug}/cover.jpg`,
           type: 'image/png',
         },
       ],
@@ -56,7 +58,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
           alt: 'banner',
           width: 1200,
           height: 630,
-          url: `/images/projects/${slug}/cover.jpg`,
+          url: slug === 'collaboard' 
+            ? `/images/projects/${slug}/cover.png`
+            : `/images/projects/${slug}/cover.jpg`,
         },
       ],
     },
@@ -97,7 +101,9 @@ export default async function ProjectPage({
         
         <div className='my-12 overflow-hidden rounded-xl border shadow-lg'>
           <Image
-            src={`/images/projects/${slug}/cover.jpg`}
+            src={slug === 'collaboard' 
+              ? `/images/projects/${slug}/cover.png`
+              : `/images/projects/${slug}/cover.jpg`}
             width={1280}
             height={832}
             alt={`${page.data.title} project showcase`}

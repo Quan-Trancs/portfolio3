@@ -117,7 +117,9 @@ function Projects() {
                       endDate={project.data.endDate}
                       category={project.data.category}
                       viewMode={viewMode}
-                      thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
+                      thumbnail={project.slugs[0] === 'collaboard' 
+                        ? `/images/projects/${project.slugs[0]}/cover.png`
+                        : `/images/projects/${project.slugs[0]}/cover.jpg`}
                     />
                   </div>
                 ))}
@@ -145,7 +147,9 @@ function Projects() {
                         endDate={project.data.endDate}
                         category={project.data.category}
                         viewMode={viewMode}
-                        thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
+                        thumbnail={project.slugs[0] === 'collaboard' 
+                          ? `/images/projects/${project.slugs[0]}/cover.png`
+                          : `/images/projects/${project.slugs[0]}/cover.jpg`}
                       />
                     </div>
                   ))}

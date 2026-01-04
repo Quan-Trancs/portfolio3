@@ -19,12 +19,12 @@ const programmingSkills: SkillSet[] = [
   {
     name: 'TypeScript',
     image: 'https://cdn.simpleicons.org/typescript/3178C6',
-    experience: "RoboMain, FPT corporation"
+    experience: "RoboMain, FPT corporation, Projects"
   },
   {
     name: 'Python',
     image: 'https://cdn.simpleicons.org/python/3776AB',
-    experience: "Arizona State University"
+    experience: "Arizona State University, Projects"
   },
   {
     name: 'C/C++',
@@ -45,6 +45,16 @@ const programmingSkills: SkillSet[] = [
     name: 'MATLAB',
     image: 'https://cdn.simpleicons.org/mathworks/0076A8',
     experience: "Arizona State University"
+  },
+  {
+    name: 'C#',
+    image: 'https://cdn.simpleicons.org/csharp/239120',
+    experience: "Projects"
+  },
+  {
+    name: 'Prolog',
+    image: 'https://cdn.simpleicons.org/prolog/000000',
+    experience: "Projects"
   }
 ];
 
@@ -103,6 +113,61 @@ const backendSkills: SkillSet[] = [
     name: 'Asynchronous Processing',
     image: 'https://cdn.simpleicons.org/java/ED8B00',
     experience: "Arizona State University, FPT corporation"
+  },
+  {
+    name: 'Node.js',
+    image: 'https://cdn.simpleicons.org/nodedotjs/339933',
+    experience: "Projects"
+  },
+  {
+    name: 'Express',
+    image: 'https://cdn.simpleicons.org/express/000000',
+    experience: "Projects"
+  },
+  {
+    name: 'Socket.IO',
+    image: 'https://cdn.simpleicons.org/socketdotio/010101',
+    experience: "Projects"
+  },
+  {
+    name: 'bcryptjs',
+    image: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+    experience: "Projects"
+  },
+  {
+    name: 'Joi',
+    image: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+    experience: "Projects"
+  },
+  {
+    name: 'Helmet',
+    image: 'https://cdn.simpleicons.org/express/000000',
+    experience: "Projects"
+  },
+  {
+    name: 'Multer',
+    image: 'https://cdn.simpleicons.org/express/000000',
+    experience: "Projects"
+  },
+  {
+    name: 'Sharp',
+    image: 'https://cdn.simpleicons.org/nodedotjs/339933',
+    experience: "Projects"
+  },
+  {
+    name: 'Maven',
+    image: 'https://cdn.simpleicons.org/apachemaven/C71A36',
+    experience: "Projects"
+  },
+  {
+    name: 'Windows Forms',
+    image: 'https://cdn.simpleicons.org/microsoft/0078D4',
+    experience: "Projects"
+  },
+  {
+    name: 'Entity Framework',
+    image: 'https://cdn.simpleicons.org/dotnet/512BD4',
+    experience: "Projects"
   }
 ];
 
@@ -110,12 +175,22 @@ const databaseTechnologies: SkillSet[] = [
   {
     name: 'MongoDB',
     image: 'https://cdn.simpleicons.org/mongodb/47A248',
-    experience: "Arizona State University, Next E-Commerce, Food Bank"
+    experience: "Arizona State University, Projects"
+  },
+  {
+    name: 'Mongoose',
+    image: 'https://cdn.simpleicons.org/mongodb/47A248',
+    experience: "Projects"
   },
   {
     name: 'DBeaver',
     image: 'https://cdn.simpleicons.org/dbeaver/4EAA25',
     experience: "RoboMain"
+  },
+  {
+    name: 'SQL Server',
+    image: 'https://cdn.simpleicons.org/microsoftsqlserver/CC2927',
+    experience: "Projects"
   }
 ];
 
@@ -141,17 +216,17 @@ const frontendSkills: SkillSet[] = [
   {
     name: 'React',
     image: 'https://cdn.simpleicons.org/react/61DAFB',
-    experience: "RoboMain"
+    experience: "RoboMain, Projects"
   },
   {
     name: 'Vue.js',
     image: 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
-    experience: "FPT corporation"
+    experience: "FPT corporation, Projects"
   },
   {
     name: 'Next.js',
     image: 'https://cdn.simpleicons.org/nextdotjs/000000',
-    experience: "RoboMain, Next E-Commerce, Food Bank, Portfolio"
+    experience: "RoboMain, Projects"
   },
   {
     name: 'Nuxt.js',
@@ -176,7 +251,7 @@ const frontendSkills: SkillSet[] = [
   {
     name: 'Zod',
     image: 'https://cdn.simpleicons.org/typescript/3178C6',
-    experience: "Arizona State University"
+    experience: "Arizona State University, Projects"
   },
   {
     name: 'Code Splitting',
@@ -217,6 +292,46 @@ const frontendSkills: SkillSet[] = [
     name: 'MDX',
     image: 'https://cdn.simpleicons.org/mdx/1B1F24',
     experience: "Arizona State University"
+  },
+  {
+    name: 'Tailwind CSS',
+    image: 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
+    experience: "Projects"
+  },
+  {
+    name: 'Vite',
+    image: 'https://cdn.simpleicons.org/vite/646CFF',
+    experience: "Projects"
+  },
+  {
+    name: 'React Router',
+    image: 'https://cdn.simpleicons.org/reactrouter/CA4245',
+    experience: "Projects"
+  },
+  {
+    name: 'React Hook Form',
+    image: 'https://cdn.simpleicons.org/react/61DAFB',
+    experience: "Projects"
+  },
+  {
+    name: 'Framer Motion',
+    image: 'https://cdn.simpleicons.org/framer/0055FF',
+    experience: "Projects"
+  },
+  {
+    name: 'Vue Router',
+    image: 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
+    experience: "Projects"
+  },
+  {
+    name: 'Canvas API',
+    image: 'https://cdn.simpleicons.org/html5/E34F26',
+    experience: "Projects"
+  },
+  {
+    name: 'YouTube API',
+    image: 'https://cdn.simpleicons.org/youtube/FF0000',
+    experience: "Projects"
   }
 ];
 
@@ -240,6 +355,11 @@ const securitySkills: SkillSet[] = [
     name: 'Input Validation',
     image: 'https://cdn.simpleicons.org/shield/000000',
     experience: "RoboMain, FPT corporation"
+  },
+  {
+    name: 'Password Hashing',
+    image: 'https://cdn.simpleicons.org/shield/000000',
+    experience: "Projects"
   }
 ];
 
@@ -278,6 +398,11 @@ const developmentTools: SkillSet[] = [
     name: 'Hibernate ORM',
     image: 'https://cdn.simpleicons.org/hibernate/59666C',
     experience: "RoboMain, FPT corporation"
+  },
+  {
+    name: 'Nodemon',
+    image: 'https://cdn.simpleicons.org/nodedotjs/339933',
+    experience: "Projects"
   }
 ];
 
@@ -325,7 +450,7 @@ const aiEngineeringSkills: SkillSet[] = [
   {
     name: 'LangChain',
     image: 'https://cdn.simpleicons.org/langchain/1C3C3C',
-    experience: "Arizona State University"
+    experience: "Arizona State University, Projects"
   },
   {
     name: 'LangGraph',
@@ -346,6 +471,16 @@ const aiEngineeringSkills: SkillSet[] = [
     name: 'Hallucination Detection',
     image: 'https://cdn.simpleicons.org/langchain/1C3C3C',
     experience: "Arizona State University"
+  },
+  {
+    name: 'Embeddings',
+    image: 'https://cdn.simpleicons.org/openai/412991',
+    experience: "Projects"
+  },
+  {
+    name: 'OpenAI',
+    image: 'https://cdn.simpleicons.org/openai/412991',
+    experience: "Projects"
   }
 ];
 
@@ -353,7 +488,7 @@ const machineLearningSkills: SkillSet[] = [
   {
     name: 'TensorFlow/Keras',
     image: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
-    experience: "Arizona State University"
+    experience: "Arizona State University, Projects"
   },
   {
     name: 'Convolutional Neural Networks',
@@ -378,12 +513,12 @@ const machineLearningSkills: SkillSet[] = [
   {
     name: 'Image Classification',
     image: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
-    experience: "Arizona State University"
+    experience: "Arizona State University, Projects"
   },
   {
     name: 'Computer Vision',
     image: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
-    experience: "Arizona State University"
+    experience: "Arizona State University, Projects"
   },
   {
     name: 'Model Optimization',
@@ -399,6 +534,36 @@ const machineLearningSkills: SkillSet[] = [
     name: 'Supervised Learning',
     image: 'https://cdn.simpleicons.org/tensorflow/FF6F00',
     experience: "Arizona State University"
+  },
+  {
+    name: 'NumPy',
+    image: 'https://cdn.simpleicons.org/numpy/013243',
+    experience: "Projects"
+  },
+  {
+    name: 'Pandas',
+    image: 'https://cdn.simpleicons.org/pandas/150458',
+    experience: "Projects"
+  },
+  {
+    name: 'Matplotlib',
+    image: 'https://cdn.simpleicons.org/matplotlib/11557C',
+    experience: "Projects"
+  },
+  {
+    name: 'OpenCV',
+    image: 'https://cdn.simpleicons.org/opencv/5C3EE8',
+    experience: "Projects"
+  },
+  {
+    name: 'Path Planning',
+    image: 'https://cdn.simpleicons.org/python/3776AB',
+    experience: "Projects"
+  },
+  {
+    name: 'Control Systems',
+    image: 'https://cdn.simpleicons.org/python/3776AB',
+    experience: "Projects"
   }
 ];
 

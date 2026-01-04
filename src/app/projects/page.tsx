@@ -165,21 +165,29 @@ export default function ProjectsPage() {
             animate='visible'
             className='grid w-full grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3'
           >
-            {filteredProjects.map((project, index) => (
-              <motion.div key={`project_${index}`} variants={itemVariants}>
-                <ProjectCard
-                  title={project.data.title}
-                  href={project.url}
-                  description={project.data.description}
-                  tags={project.data.tags}
-                  thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
-                  date={project.data.date}
-                  startDate={project.data.startDate}
-                  endDate={project.data.endDate}
-                  category={project.data.category}
-                />
-              </motion.div>
-            ))}
+            {filteredProjects.map((project, index) => {
+              const projectSlug = project.slugs[0];
+              // Use PNG for collaboard, JPG for others
+              const thumbnail = projectSlug === 'collaboard' 
+                ? `/images/projects/${projectSlug}/cover.png`
+                : `/images/projects/${projectSlug}/cover.jpg`;
+              
+              return (
+                <motion.div key={`project_${index}`} variants={itemVariants}>
+                  <ProjectCard
+                    title={project.data.title}
+                    href={project.url}
+                    description={project.data.description}
+                    tags={project.data.tags}
+                    thumbnail={thumbnail}
+                    date={project.data.date}
+                    startDate={project.data.startDate}
+                    endDate={project.data.endDate}
+                    category={project.data.category}
+                  />
+                </motion.div>
+              );
+            })}
           </motion.div>
         ) : (
           <motion.div

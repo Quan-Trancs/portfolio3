@@ -39,22 +39,30 @@ function Projects() {
               className="w-full"
             >
               <CarouselContent>
-                {projects.map((project, index) => (
-                  <CarouselItem
-                    key={`project_${index}`}
-                    className="md:basis-1/2 lg:basis-full	xl:basis-1/2"
-                  >
-                    <div className="h-full">
-                      <ProjectCard
-                        title={project.data.title}
-                        href={project.url}
-                        description={project.data.description}
-                        tags={project.data.tags}
-                        thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
+                {projects.map((project, index) => {
+                  const projectSlug = project.slugs[0];
+                  // Use PNG for collaboard, JPG for others
+                  const thumbnail = projectSlug === 'collaboard' 
+                    ? `/images/projects/${projectSlug}/cover.png`
+                    : `/images/projects/${projectSlug}/cover.jpg`;
+                  
+                  return (
+                    <CarouselItem
+                      key={`project_${index}`}
+                      className="md:basis-1/2 lg:basis-full	xl:basis-1/2"
+                    >
+                      <div className="h-full">
+                        <ProjectCard
+                          title={project.data.title}
+                          href={project.url}
+                          description={project.data.description}
+                          tags={project.data.tags}
+                          thumbnail={thumbnail}
+                        />
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
               <CarouselPrevious />
               <CarouselNext />

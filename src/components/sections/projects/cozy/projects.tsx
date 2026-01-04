@@ -28,16 +28,24 @@ function Projects() {
           </p>
         </div>
         <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {projects.map((project, index) => (
-            <ProjectCard
-              title={project.data.title}
-              href={project.url}
-              description={project.data.description}
-              key={`project_${index}`}
-              tags={project.data.tags}
-              thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
-            />
-          ))}
+          {projects.map((project, index) => {
+            const projectSlug = project.slugs[0];
+            // Use PNG for collaboard, JPG for others
+            const thumbnail = projectSlug === 'collaboard' 
+              ? `/images/projects/${projectSlug}/cover.png`
+              : `/images/projects/${projectSlug}/cover.jpg`;
+            
+            return (
+              <ProjectCard
+                title={project.data.title}
+                href={project.url}
+                description={project.data.description}
+                key={`project_${index}`}
+                tags={project.data.tags}
+                thumbnail={thumbnail}
+              />
+            );
+          })}
         </div>
       </div>
     </MotionWrap>
