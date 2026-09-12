@@ -102,7 +102,7 @@ const backendSkills: SkillSet[] = [
   {
     name: 'AWS',
     image: 'https://cdn.simpleicons.org/amazonaws/232F3E',
-    experience: "RoboMain"
+    experience: "Congero Technology Group"
   },
   {
     name: 'Caffeine',
@@ -567,10 +567,42 @@ const machineLearningSkills: SkillSet[] = [
   }
 ];
 
+const finTechSkills: SkillSet[] = [
+  {
+    name: 'Oracle BRM',
+    image: 'https://cdn.simpleicons.org/oracle/F80000',
+    experience: "Congero Technology Group"
+  },
+  {
+    name: 'OCI',
+    image: 'https://cdn.simpleicons.org/oracle/F80000',
+    experience: "Congero Technology Group"
+  },
+  {
+    name: 'Kubernetes',
+    image: 'https://cdn.simpleicons.org/kubernetes/326CE5',
+    experience: "Congero Technology Group"
+  },
+  {
+    name: 'Power BI',
+    image: 'https://cdn.simpleicons.org/powerbi/F2C811',
+    experience: "Congero Technology Group"
+  },
+  {
+    name: 'AWS',
+    image: 'https://cdn.simpleicons.org/amazonaws/232F3E',
+    experience: "Congero Technology Group"
+  }
+];
+
 const skillCategories: SkillCategory[] = [
   {
     name: 'Programming Languages',
     skills: programmingSkills
+  },
+  {
+    name: 'Fin-Tech',
+    skills: finTechSkills
   },
   {
     name: 'Backend',

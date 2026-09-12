@@ -3,7 +3,7 @@ import { project } from '@/app/source';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Update this with your actual domain or set NEXT_PUBLIC_SITE_URL env var
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://quananhtran.vercel.app';
   
   // Get all project slugs
   const projects = project.getPages();

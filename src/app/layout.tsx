@@ -10,11 +10,11 @@ import ThemeToggleFixed from "@/components/theme-toggle-fixed";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio Created By NextJS, showcasing my Skill and Experience.",
-  keywords: ["portfolio", "developer", "software engineer", "web developer"],
-  authors: [{ name: "Quan Tran" }],
-  creator: "Quan Tran",
+  title: "Anh Quan Tran - Software Engineer Intern",
+  description: "CS student at Arizona State University. Software Engineer Intern building full-stack web apps, cloud billing systems, and LLM agents.",
+  keywords: ["portfolio", "software engineer intern", "full stack", "cloud billing", "web developer"],
+  authors: [{ name: "Anh Quan Tran" }],
+  creator: "Anh Quan Tran",
   robots: {
     index: true,
     follow: true,

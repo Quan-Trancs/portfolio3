@@ -13,7 +13,14 @@ function SkillSetCard({
   className
 }: SkillSetCardProps) {
   // Check if skill was used in internships
-  const internshipCompanies = ['MightyID', 'RoboMain', 'FPT corporation', 'FPT Corporation'];
+  const internshipCompanies = [
+    'MightyID',
+    'RoboMain',
+    'FPT corporation',
+    'FPT Corporation',
+    'Congero',
+    'Congero Technology Group'
+  ];
   const usedInInternship = experience && internshipCompanies.some(company => 
     experience.toLowerCase().includes(company.toLowerCase())
   );

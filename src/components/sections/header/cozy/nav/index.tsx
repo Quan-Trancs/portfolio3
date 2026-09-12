@@ -95,12 +95,18 @@ export function NavigationMenuDemo() {
             Skills
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[95vw] max-w-[1400px] gap-1 p-4 md:grid-cols-4">
+            <ul className="grid w-[95vw] max-w-[1400px] gap-1 p-4 md:grid-cols-5">
               <ListItem
                 title="Programming Languages & Development Tools"
                 href="/#skills"
               >
                 General skills and tools
+              </ListItem>
+              <ListItem
+                title="Fin-Tech"
+                href="/#skills-fintech"
+              >
+                Oracle BRM, OCI, Kubernetes, Power BI
               </ListItem>
               <ListItem
                 title="Web Development"

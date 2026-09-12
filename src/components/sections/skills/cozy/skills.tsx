@@ -13,6 +13,7 @@ function Skills() {
   // Extract Programming Languages and Development Tools to display above Web Development
   const programmingLanguages = skillCategories.find(cat => cat.name === 'Programming Languages');
   const developmentTools = skillCategories.find(cat => cat.name === 'Development Tools');
+  const finTech = skillCategories.find(cat => cat.name === 'Fin-Tech');
 
   return (
     <MotionWrap className="w-full pt-24 lg:pt-32" id="skills">
@@ -37,7 +38,7 @@ function Skills() {
         </div>
         
         {/* Programming Languages and Development Tools above Web Development */}
-        {(programmingLanguages || developmentTools) && (
+        {(programmingLanguages || developmentTools || finTech) && (
           <div id="skills-general" className="scroll-mt-24 space-y-6 mb-8">
             {programmingLanguages && (
               <div className="space-y-2">
@@ -68,6 +69,25 @@ function Skills() {
                 <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
                   {developmentTools.skills.map((skill, skillIndex) => (
                     <div key={`tools_${skillIndex}`} className="h-full">
+                      <SkillSetCard
+                        name={skill.name}
+                        experience={skill.experience}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {finTech && (
+              <div id="skills-fintech" className="scroll-mt-24 space-y-2">
+                <Reveal>
+                  <h4 className="text-lg font-bold tracking-tighter sm:text-xl">
+                    {finTech.name}
+                  </h4>
+                </Reveal>
+                <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
+                  {finTech.skills.map((skill, skillIndex) => (
+                    <div key={`fintech_${skillIndex}`} className="h-full">
                       <SkillSetCard
                         name={skill.name}
                         experience={skill.experience}

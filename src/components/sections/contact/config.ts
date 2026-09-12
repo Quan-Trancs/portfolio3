@@ -11,7 +11,7 @@ const contact: Contact = {
     },
     {
       name: 'Linkedin',
-      href: 'https://www.linkedin.com/in/quan-tran-cs/',
+      href: 'https://www.linkedin.com/in/quan-tran-960832276/',
       Icon: SiLinkedin
     }
   ]

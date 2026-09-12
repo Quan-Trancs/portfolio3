@@ -4,16 +4,19 @@ const metadata: Metadata = {
   author: {
     name: 'Anh Quan Tran',
     username: 'quantran',
-    label: 'Software Developer Intern'
+    label: 'Software Engineer Intern'
   },
   site: {
-    title: 'Anh Quan Tran - Software Developer Intern',
-    description: 'Software Developer Intern recognized for high productivity and efficient task completion. Proficient in Java, SQL, and Python, with expertise in debugging, coding, and software design.',
-    url: 'https://www.example.com',
+    title: 'Anh Quan Tran - Software Engineer Intern',
+    description: 'CS student at Arizona State University. Software Engineer Intern building full-stack web apps, cloud billing systems, and LLM agents.',
+    url: 'https://quananhtran.vercel.app',
     keywords: [
-      'software developer',
+      'software engineer',
+      'software engineer intern',
       'full stack development',
       'web development',
+      'cloud billing',
+      'Oracle BRM',
       'Java',
       'Python',
       'JavaScript',

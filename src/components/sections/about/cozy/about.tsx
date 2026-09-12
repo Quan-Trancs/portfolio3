@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { ArrowUpRightIcon } from 'lucide-react';
 import MotionWrap from "@/components/motion-wrap";
 import TextReveal from "@/components/text-reveal";
+import SmoothHashLink from '@/components/smooth-hash-link';
 
 function About() {
   return (
@@ -18,12 +18,9 @@ function About() {
             <div className="space-y-4">
               <p className="max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 <TextReveal>
-                  I am a Computer Science student at Arizona State University, graduating in May 2026 with a GPA of 3.5/4.0. 
-                  As a Software Developer Intern, I am recognized for high productivity and efficient task completion. 
-                  Proficient in Java, SQL, and Python, with expertise in debugging, coding, and software design. 
-                  I have demonstrated ability in full stack development and agile methodologies, contributing to improved 
-                  system efficiency and streamlined processes in team projects.                   My experience includes internships at MightyID, 
-                  RoboMain, and FPT Corporation, where I&apos;ve worked on various web applications and systems.
+                  I am a Computer Science student at Arizona State University (Ira A. Fulton Schools of Engineering), graduating in December 2027 with a GPA of 3.56/4.0. Kaplan International Scholar and Dean&apos;s List (Fall 2022, Spring 2023, Fall 2023).
+                  I build production web apps, cloud billing systems, and LLM agents — Java/Spring Boot APIs, Next.js/Nuxt frontends, and cloud-native billing on Oracle BRM.
+                  Recently at Congero Technology Group I configured Pricing Center catalogs, mapped usage events to RUMs, and worked with BRM on OCI, plus Power BI dashboards and AWS Cloud Practitioner training. I have also interned at MightyID, RoboMain, and FPT Corporation.
                 </TextReveal>
               </p>
               <div className="flex gap-2">
@@ -33,7 +30,7 @@ function About() {
                   </a>
                 </Button>
                 <Button asChild>
-                  <Link href="/#skills">Learn More</Link>
+                  <SmoothHashLink href="#skills">Learn More</SmoothHashLink>
                 </Button>
               </div>
             </div>

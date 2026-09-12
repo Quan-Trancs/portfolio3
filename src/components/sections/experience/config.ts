@@ -2,6 +2,16 @@ import { Experience } from '@/types/experience';
 
 const experiences: Experience[] = [
   {
+    name: 'Software Engineer Intern',
+    duration: 'June 2026 - July 2026',
+    company: 'Congero Technology Group',
+    points: [
+      'Configured Oracle BRM and Embrix product catalogs in Pricing Center, including flat-rate, pay-as-you-go, and token-limit plans for NextAI/Oddisey offerings.',
+      'Built billing test accounts and mapped usage events to RUMs for rating, invoicing, and customer-care workflows on the enterprise billing stack.',
+      'Worked with cloud-native BRM on OCI (Oracle Kubernetes Engine) and built a Power BI billing dashboard. Completed AWS Cloud Practitioner training through Congero Tech Academy.'
+    ]
+  },
+  {
     name: 'Software Developer Intern',
     duration: 'May 2025 - Aug 2025',
     company: 'MightyID',
