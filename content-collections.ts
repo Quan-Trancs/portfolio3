@@ -5,6 +5,38 @@ import {
     transformMDX
 } from '@fumadocs/content-collections/configuration';
 
+type StructuredContent = {
+    heading?: string;
+    content: string;
+};
+
+function omitUndefinedHeadings<
+    T extends {
+        structuredData?: {
+            contents?: StructuredContent[];
+        };
+    }
+>(document: T): T {
+    const contents = document.structuredData?.contents;
+    if (!contents) {
+        return document;
+    }
+
+    return {
+        ...document,
+        structuredData: {
+            ...document.structuredData,
+            contents: contents.map((item) => {
+                if (item.heading == null) {
+                    const { heading: _heading, ...rest } = item;
+                    return rest;
+                }
+                return item;
+            })
+        }
+    };
+}
+
 const projects = defineCollection({
     name: 'projects',
     directory: 'content/projects',
@@ -28,7 +60,8 @@ const projects = defineCollection({
             category: z.string().optional()
         };
     },
-    transform: transformMDX
+    transform: async (document, context) =>
+        omitUndefinedHeadings(await transformMDX(document, context))
 });
 
 const projectMetas = defineCollection({
